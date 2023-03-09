@@ -19,7 +19,7 @@ def main():
     half_year_str = half_year_date.strftime('%d/%m/%Y')
 
     for route in sheet_data:
-        if route['iataCode'] == '':
+        if not route['iataCode']:
             route['iataCode'] = kiwi_flight_search.get_iata_code(route['city'])
             data_manager.change_iata(route['id'], route['iataCode'])
 
